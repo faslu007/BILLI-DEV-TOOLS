@@ -1,0 +1,46 @@
+{
+	"manifest_version": 3,
+	"name": "Billi Dev Tools",
+	"version": "1.0",
+	"description": "Dev Tools for AIMA developers and testers",
+	"permissions": [
+		"activeTab",
+		"declarativeNetRequest",
+		"declarativeNetRequestFeedback",
+		"webRequest",
+		"debugger",
+		"tabs"
+	],
+	"host_permissions": [
+		"https://*.aimapms.com/*",
+		"http://localhost/*",
+		"<all_urls>"
+	],
+	"declarative_net_request": {
+		"rule_resources": [
+			{
+				"id": "ruleset_1",
+				"enabled": true,
+				"path": "access_network_req.json"
+			}
+		]
+	},
+	"content_scripts": [
+		{
+				"matches": [
+					"https://*.aimapms.com/*",
+					"http://localhost/*"
+				],
+				"js": [
+					"content.js"
+				],
+				"run_at": "document_start"
+		}
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"icons": {
+		"48": "image.png"
+	}
+}

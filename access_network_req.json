@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "x-requested-with",
+          "operation": "set",
+          "value": "XMLHttpRequest"
+        }
+      ]
+    },
+    "condition": {
+      "resourceTypes": ["xmlhttprequest"],
+      "urlFilter": "*",
+      "initiatorDomains": [
+        "qa.aimapms.com",
+        "qa2.aimapms.com",
+        "qa3.aimapms.com",
+        "localhost"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        {
+          "header": "access-control-allow-origin",
+          "operation": "set",
+          "value": "*"
+        },
+        {
+          "header": "access-control-allow-methods",
+          "operation": "set",
+          "value": "*"
+        },
+        {
+          "header": "access-control-allow-headers",
+          "operation": "set",
+          "value": "*"
+        },
+        {
+          "header": "access-control-expose-headers",
+          "operation": "set",
+          "value": "*"
+        }
+      ]
+    },
+    "condition": {
+      "resourceTypes": ["xmlhttprequest"],
+      "urlFilter": "*",
+      "initiatorDomains": [
+        "qa.aimapms.com",
+        "qa2.aimapms.com",
+        "qa3.aimapms.com",
+        "localhost"
+      ]
+    }
+  }
+]
