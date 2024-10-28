@@ -166,7 +166,7 @@ class NetworkPanelFeature {
     constructor() {
         this.panel = null;
         this.requests = [];
-        this.maxRequests = 10;
+        this.maxRequests = 30;
     }
 
     execute() {
@@ -178,7 +178,6 @@ class NetworkPanelFeature {
     setupMessageListener() {
         chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             if (message.type === 'network-request') {
-                debugger
                 this.addRequest(message.data);
             }
         });
@@ -428,6 +427,8 @@ class NetworkPanelFeature {
 
         const header = document.createElement('div');
         Object.assign(header.style, {
+            position: 'sticky',
+            top: 0,
             padding: '10px',
             borderBottom: '1px solid #eee',
             display: 'flex',
